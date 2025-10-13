@@ -20,7 +20,7 @@ deploy:
 			ServiceCatalogPortfolioFunction=AccountSetupProfile \
 			RegionalFunction=AccountSetupProfile \
 			DependencyLayer=AccountSetupProfile \
-		--tags "GITHUB_ORG=aws-samples GITHUB_REPO=aws-control-tower-account-setup-using-step-functions"
+		--tags "GITHUB_ORG=planningcenter-platform GITHUB_REPO=aws-control-tower-account-setup"
 
 clean:
 	sam delete
