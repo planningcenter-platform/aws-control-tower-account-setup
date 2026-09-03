@@ -455,6 +455,15 @@ Resources:
                     "RoleArn.$": "$.ExecutionRoleArn"
                   Parameters: {}
                   ResultPath: null # discard result and keep original input
+                  Next: ImdsV2Default
+                ImdsV2Default:
+                  Type: Task
+                  Resource: "arn:aws:states:::aws-sdk:ec2:modifyInstanceMetadataDefaults"
+                  Credentials:
+                    "RoleArn.$": "$.ExecutionRoleArn"
+                  Parameters:
+                    HttpTokens: required
+                  ResultPath: null # discard result and keep original input
                   Next: DisableSsmPublicSharing
                 DisableSsmPublicSharing:
                   Type: Task
