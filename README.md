@@ -7,6 +7,7 @@
 3. [Prerequisites](#prerequisites)
 4. [Tools and services](#tools-and-services)
 5. [Usage](#usage)
+   - [Deploying at Planning Center](#deploying-at-planning-center)
 6. [Clean up](#clean-up)
 7. [Reference](#reference)
 8. [Contributing](#contributing)
@@ -90,6 +91,10 @@ sam deploy \
     DependencyLayer=AccountSetupProfile \
   --tags "GITHUB_ORG=aws-samples GITHUB_REPO=aws-control-tower-account-setup-using-step-functions"
 ```
+
+## Deploying at Planning Center
+
+Merging to `main` doesn't deploy. The `aws-control-tower-account-setup` stack is in the Management account (`423623869918`, `us-east-1`), and deploying it needs `AWSAdministratorAccess` there. With a profile for that role, run `make build deploy`. `samconfig.toml` is gitignored, so on a machine that hasn't deployed this before, run `sam deploy --guided` once with that stack name and the Makefile's signing profiles. There's no staging environment.
 
 ## Clean up
 
